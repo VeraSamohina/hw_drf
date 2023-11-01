@@ -1,6 +1,6 @@
-[{"model": "payments.payment", "pk": 1, "fields": {"course": 1, "lesson": null, "user": 2, "date": "2023-04-13T07:39:11Z", "amount": "10000.00", "payment_type": "CACHE"}},
-  {"model": "payments.payment", "pk": 2, "fields": {"course": null, "lesson": 1, "user": 3, "date": "2023-10-20T11:39:42Z", "amount": "900.00", "payment_type": "TRANSFER_TO_ACCOUNT"}},
-  {"model": "payments.payment", "pk": 3, "fields": {"course": null, "lesson": 2, "user": 3, "date": "2023-09-20T11:39:42Z", "amount": "1000.00", "payment_type": "TRANSFER_TO_ACCOUNT"}},
-{"model": "payments.payment", "pk": 4, "fields": {"course": 2, "lesson": null, "user": 2, "date": "2023-06-13T07:39:11Z", "amount": "17700.00", "payment_type": "CACHE"}},
-{"model": "payments.payment", "pk": 5, "fields": {"course": 2, "lesson": null, "user": 2, "date": "2023-07-13T07:39:11Z", "amount": "12300.00", "payment_type": "CACHE"}},
-{"model": "payments.payment", "pk": 3, "fields": {"course": null, "lesson": 2, "user": 3, "date": "2023-09-11T11:39:42Z", "amount": "1100.00", "payment_type": "TRANSFER_TO_ACCOUNT"}}]
+[{"model": "payments.payment", "pk": 1, "fields": {"course": 1, "lesson": null, "user": 5, "date": "2023-04-13T07:39:11Z", "amount": "10000.00", "payment_type": "CACHE"}},
+  {"model": "payments.payment", "pk": 2, "fields": {"course": null, "lesson": 1, "user": 6, "date": "2023-10-20T11:39:42Z", "amount": "900.00", "payment_type": "TRANSFER_TO_ACCOUNT"}},
+  {"model": "payments.payment", "pk": 3, "fields": {"course": null, "lesson": 2, "user": 6, "date": "2023-09-20T11:39:42Z", "amount": "1000.00", "payment_type": "TRANSFER_TO_ACCOUNT"}},
+{"model": "payments.payment", "pk": 4, "fields": {"course": 2, "lesson": null, "user": 5, "date": "2023-06-13T07:39:11Z", "amount": "17700.00", "payment_type": "CACHE"}},
+{"model": "payments.payment", "pk": 5, "fields": {"course": 2, "lesson": null, "user": 5, "date": "2023-07-13T07:39:11Z", "amount": "12300.00", "payment_type": "CACHE"}},
+{"model": "payments.payment", "pk": 3, "fields": {"course": null, "lesson": 2, "user": 6, "date": "2023-09-11T11:39:42Z", "amount": "1100.00", "payment_type": "TRANSFER_TO_ACCOUNT"}}]
