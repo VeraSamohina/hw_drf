@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
 from courses.models import Course, Lesson
+from courses.validators import LinkOnlyYoutubeValidator
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -20,6 +21,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class LessonSerializer(serializers.ModelSerializer):
+    validators = [LinkOnlyYoutubeValidator(field='video')]
     class Meta:
         model = Lesson
         fields = '__all__'
