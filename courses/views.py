@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from courses.models import Course, Lesson, Subscription
+from courses.paginators import LessonPaginator
 from courses.serializers import CourseSerializer, LessonSerializer, SubscriptionSerializer
 from permissions import IsOwner, IsModerator
 
@@ -48,6 +49,7 @@ class LessonCreateAPIView(generics.CreateAPIView):
 class LessonListAPIView(generics.ListAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
+    pagination_class = LessonPaginator
 
 
 class LessonRetrieveAPIView(generics.RetrieveAPIView):
