@@ -10,5 +10,5 @@ class LinkOnlyYoutubeValidator:
 
     def __call__(self, value):
         video_url = value.get(self.field)
-        if not video_url.startswith('https://www.youtube.com/'):
+        if video_url and not video_url.startswith('https://www.youtube.com/'):
             raise ValidationError('Запрещено использовать ссылки на ресурсы, кроме Youtube')

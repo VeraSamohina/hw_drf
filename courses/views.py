@@ -32,9 +32,6 @@ class CourseViewSet(viewsets.ModelViewSet):
         new_course.owner = self.request.user
         new_course.save()
 
-    def partial_update(self, request, *args, **kwargs):
-        pass
-
 
 class LessonCreateAPIView(generics.CreateAPIView):
     serializer_class = LessonSerializer
@@ -91,10 +88,12 @@ class SubscribeCreateAPIView(generics.CreateAPIView):
 
 
 class UnSubscribeAPIView(APIView):
+    serializer_class = SubscriptionSerializer
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, course_id):
+    def post(self, request,  *args, **kwargs):
         user = request.user
+        course_id = self.kwargs['pk']
         # Устанавливаем подписку как неактивную
         subscription = Subscription.objects.filter(course=course_id, user=user).first()
         subscription.is_active = False
