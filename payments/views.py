@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 from courses.models import Course
 from payments.models import Payment
 from payments.serializers import PaymentSerializer
+from payments.services import create_payment_intent
 
 
 class PaymentListAPIView(generics.ListAPIView):
@@ -34,15 +35,8 @@ class PaymentCreateAPIView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
-        stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
         course = Course.objects.get(id=kwargs.get('pk'))
-        # Создание платежного намерения в stripe
-        payment_intent = stripe.PaymentIntent.create(amount=int(course.price), currency='rub',
-                                                     automatic_payment_methods={"enabled": True, "allow_redirects": "never"})
-
-        # Подтверждение платежного намерения в stripe
-        stripe.PaymentIntent.confirm(payment_intent.id, payment_method='pm_card_visa')
-
+        payment_intent = create_payment_intent(kwargs.get('pk'))
         user = self.request.user
         payment_id = payment_intent.id
         # Формирование данных для сохранения в объект класса Payment
