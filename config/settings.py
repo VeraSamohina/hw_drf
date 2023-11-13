@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+from datetime import timedelta
 from pathlib import Path
 
 import stripe
@@ -154,3 +155,10 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
+
+CELERY_BEAT_SCHEDULE = {
+    'block_users': {
+        'task': 'courses.tasks.inactivate_user',
+        'schedule': timedelta(days=1),
+    },
+}
