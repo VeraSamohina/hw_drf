@@ -148,3 +148,9 @@ stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
 
 CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = True
